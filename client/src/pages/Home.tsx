@@ -15,8 +15,8 @@ export default function Home() {
         <div className="w-24 h-2 bg-accent mx-auto transform -rotate-2"></div>
 
         <p className="font-mono text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-          Punk-rock bufet a koncertný priestor na bratislavskej hrádzi aj zo skrytou časťou, 
-          otvorený aj cez zimnú sezónu. Na Werande sa konajú aj koncerty a punkotéky.
+          Punk-rock bufet a koncertný priestor na bratislavskej Petržalke. 
+          Živá hudba, dobrý alkohol a autentická atmosféra. Weranda je miesto, kde sa stretáva punk kultúra s kvalitným jedlom a nápojmi.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">

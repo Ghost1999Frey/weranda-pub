@@ -18,15 +18,18 @@ export default function Contact() {
                 <MapPin className="h-6 w-6" /> Adresa
               </h2>
               <div className="space-y-4 font-mono">
-                <p>Weranda - Punk Rock Bufet</p>
-                <p>Bratislavská hrádza</p>
-                <p>851 01 Bratislava</p>
-                <div className="pt-4 flex flex-col gap-2">
-                  <a href="tel:+421900000000" className="flex items-center gap-2 hover:text-accent transition-colors">
-                    <Phone className="h-4 w-4" /> +421 900 000 000
+                <p className="font-bold text-lg">Weranda - Punk Rock Bufet</p>
+                <p>Májová 3303/23</p>
+                <p>851 01 Bratislava-Petržalka</p>
+                <div className="pt-4 flex flex-col gap-3">
+                  <a href="tel:+421948318527" className="flex items-center gap-2 hover:text-accent transition-colors font-bold">
+                    <Phone className="h-4 w-4" /> +421 948 318 527
                   </a>
-                  <a href="mailto:weranda@example.com" className="flex items-center gap-2 hover:text-accent transition-colors">
-                    <Mail className="h-4 w-4" /> weranda@example.com
+                  <a href="https://www.facebook.com/WerandaPunkRockBufet/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors">
+                    <span>📘</span> Facebook
+                  </a>
+                  <a href="https://www.instagram.com/weranda_punk_rock_bufet/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors">
+                    <span>📷</span> Instagram
                   </a>
                 </div>
               </div>
@@ -38,16 +41,16 @@ export default function Contact() {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label className="text-sm font-bold uppercase">Meno</label>
-                    <Input className="rounded-none border-2 border-foreground focus-visible:ring-0 focus-visible:border-accent bg-transparent" />
+                    <Input className="rounded-none border-2 border-foreground focus-visible:ring-0 focus-visible:border-accent bg-transparent" placeholder="Vaše meno" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-bold uppercase">Email</label>
-                    <Input type="email" className="rounded-none border-2 border-foreground focus-visible:ring-0 focus-visible:border-accent bg-transparent" />
+                    <Input type="email" className="rounded-none border-2 border-foreground focus-visible:ring-0 focus-visible:border-accent bg-transparent" placeholder="vasa@email.com" />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-bold uppercase">Správa</label>
-                  <Textarea className="rounded-none border-2 border-foreground focus-visible:ring-0 focus-visible:border-accent min-h-[120px] bg-transparent" />
+                  <Textarea className="rounded-none border-2 border-foreground focus-visible:ring-0 focus-visible:border-accent min-h-[120px] bg-transparent" placeholder="Vaša správa..." />
                 </div>
                 <Button className="w-full rounded-none bg-foreground text-background hover:bg-accent hover:text-foreground transition-colors text-lg uppercase font-bold py-6">
                   Odoslať
@@ -62,13 +65,15 @@ export default function Contact() {
                <MapView 
                  className="w-full h-full"
                  onMapReady={(map: google.maps.Map) => {
+                   // Bratislava-Petržalka coordinates
+                   const werandaLocation = { lat: 48.1358, lng: 17.1348 };
                    new google.maps.Marker({
-                     position: { lat: 48.135, lng: 17.135 }, // Approx Bratislava location
+                     position: werandaLocation,
                      map: map,
-                     title: "Weranda"
+                     title: "Weranda - Punk Rock Bufet"
                    });
-                   map.setCenter({ lat: 48.135, lng: 17.135 });
-                   map.setZoom(14);
+                   map.setCenter(werandaLocation);
+                   map.setZoom(15);
                  }}
                />
             </div>
@@ -77,22 +82,26 @@ export default function Contact() {
               <h2 className="font-bold text-2xl mb-6 uppercase tracking-widest flex items-center gap-2">
                 <Clock className="h-6 w-6" /> Otváracie hodiny
               </h2>
-              <div className="grid grid-cols-2 gap-4 font-mono">
-                <div>
-                  <p className="font-bold">Pondelok - Štvrtok</p>
-                  <p>16:00 - 22:00</p>
+              <div className="grid grid-cols-1 gap-3 font-mono">
+                <div className="flex justify-between border-b border-accent-foreground/20 pb-2">
+                  <p className="font-bold">Pondelok</p>
+                  <p>Zatvorené</p>
                 </div>
-                <div>
+                <div className="flex justify-between border-b border-accent-foreground/20 pb-2">
+                  <p className="font-bold">Utorok - Štvrtok</p>
+                  <p>14:00 - 21:00</p>
+                </div>
+                <div className="flex justify-between border-b border-accent-foreground/20 pb-2">
                   <p className="font-bold">Piatok</p>
-                  <p>16:00 - 02:00</p>
-                </div>
-                <div>
-                  <p className="font-bold">Sobota</p>
-                  <p>14:00 - 02:00</p>
-                </div>
-                <div>
-                  <p className="font-bold">Nedeľa</p>
                   <p>14:00 - 22:00</p>
+                </div>
+                <div className="flex justify-between border-b border-accent-foreground/20 pb-2">
+                  <p className="font-bold">Sobota</p>
+                  <p>12:00 - 22:00</p>
+                </div>
+                <div className="flex justify-between">
+                  <p className="font-bold">Nedeľa</p>
+                  <p>12:00 - 21:00</p>
                 </div>
               </div>
             </div>

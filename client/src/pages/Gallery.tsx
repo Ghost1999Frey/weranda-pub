@@ -11,7 +11,7 @@ export default function Gallery() {
           <div key={i} className="group relative aspect-square border-2 border-foreground bg-muted overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,168,150,1)] transition-all duration-300">
             <div className="absolute inset-0 bg-accent/20 group-hover:bg-transparent transition-colors duration-300"></div>
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 text-white font-mono">
-              <span>Photo {i + 1}</span>
+              <span>Fotografia {i + 1}</span>
             </div>
             {/* Actual image would go here */}
             <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 font-mono text-4xl">

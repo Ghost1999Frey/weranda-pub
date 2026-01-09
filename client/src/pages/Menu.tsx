@@ -2,16 +2,20 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const menuItems = {
   drinks: [
-    { name: "Pivo Čapované", price: "2.50 €", desc: "Ležiak 12°" },
-    { name: "Punk IPA", price: "3.20 €", desc: "Remeselné pivo" },
-    { name: "Kofola", price: "1.50 €", desc: "0.5l čapovaná" },
-    { name: "Domáca Limonáda", price: "2.80 €", desc: "Podľa dennej ponuky" },
+    { name: "Pivo Čapované", price: "2,50 €", desc: "Ležiak 12°" },
+    { name: "Punk IPA", price: "3,20 €", desc: "Remeselné pivo" },
+    { name: "Kofola", price: "1,50 €", desc: "0,5l čapovaná" },
+    { name: "Domáca Limonáda", price: "2,80 €", desc: "Podľa dennej ponuky" },
+    { name: "Fernet Stock", price: "2,00 €", desc: "Klasika" },
+    { name: "Borovička", price: "2,50 €", desc: "Tradičný slovenský nápoj" },
   ],
   food: [
-    { name: "Nakladaný Hermelín", price: "4.50 €", desc: "S cibuľkou a chlebom" },
-    { name: "Utopenec", price: "3.50 €", desc: "Klasika s feferónkou" },
-    { name: "Hranolky", price: "3.00 €", desc: "S domácim dresingom" },
-    { name: "Burger Weranda", price: "8.90 €", desc: "Hovädzie mäso, cheddar, slanina" },
+    { name: "Nakladaný Hermelín", price: "4,50 €", desc: "S cibuľkou a chlebom" },
+    { name: "Utopenec", price: "3,50 €", desc: "Klasika s feferónkou" },
+    { name: "Hranolky", price: "3,00 €", desc: "S domácim dresingom" },
+    { name: "Burger Weranda", price: "8,90 €", desc: "Hovädzie mäso, cheddar, slanina" },
+    { name: "Parenice", price: "4,20 €", desc: "Tradičné slovenské parenice" },
+    { name: "Chlieb s maslom a cesnakom", price: "2,50 €", desc: "Domáci chlieb" },
   ]
 };
 

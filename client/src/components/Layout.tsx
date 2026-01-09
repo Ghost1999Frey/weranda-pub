@@ -9,10 +9,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Главная страница", path: "/" },
-    { label: "O nas", path: "/o-nas" },
-    { label: "Меню", path: "/menu" },
-    { label: "Галерея", path: "/gallery" },
+    { label: "Domov", path: "/" },
+    { label: "O nás", path: "/o-nas" },
+    { label: "Menu", path: "/menu" },
+    { label: "Galéria", path: "/gallery" },
     { label: "Kontakty", path: "/kontakty" },
   ];
 
@@ -94,24 +94,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div>
             <h3 className="font-serif text-2xl font-bold mb-4">Weranda</h3>
             <p className="text-sm opacity-80 max-w-xs">
-              Punk-rock bufet a koncertný priestor na bratislavskej hrádzi.
+              Punk-rock bufet a koncertný priestor na bratislavskej Petržalke. Autentická atmosféra, kvalitné nápoje a živá hudba.
             </p>
           </div>
           <div>
             <h4 className="font-bold uppercase tracking-widest mb-4 text-accent">Kontakt</h4>
-            <p className="text-sm opacity-80">weranda@example.com</p>
-            <p className="text-sm opacity-80">+421 900 000 000</p>
+            <p className="text-sm opacity-80">Májová 3303/23</p>
+            <p className="text-sm opacity-80">851 01 Bratislava-Petržalka</p>
+            <p className="text-sm opacity-80 mt-2">+421 948 318 527</p>
           </div>
           <div>
-            <h4 className="font-bold uppercase tracking-widest mb-4 text-accent">Social</h4>
-            <div className="flex gap-4">
-              <a href="#" className="hover:text-accent transition-colors">Instagram</a>
-              <a href="#" className="hover:text-accent transition-colors">Facebook</a>
+            <h4 className="font-bold uppercase tracking-widest mb-4 text-accent">Sociálne siete</h4>
+            <div className="flex flex-col gap-2">
+              <a href="https://www.facebook.com/WerandaPunkRockBufet/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors text-sm">📘 Facebook</a>
+              <a href="https://www.instagram.com/weranda_punk_rock_bufet/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors text-sm">📷 Instagram</a>
             </div>
           </div>
         </div>
         <div className="container mt-12 pt-8 border-t border-background/20 text-center text-xs opacity-60">
-          © {new Date().getFullYear()} Weranda. All rights reserved. Punk's not dead.
+          © {new Date().getFullYear()} Weranda Punk Rock Bufet. Všetky práva vyhradené. Punk nie je mŕtvy.
         </div>
       </footer>
     </div>
