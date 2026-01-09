@@ -1,25 +1,37 @@
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+import { Link } from "wouter";
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
- */
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
+    <div className="flex flex-col items-center justify-center min-h-[80vh] px-4 py-12 text-center relative overflow-hidden">
+      {/* Background Texture/Noise could go here */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+
+      <div className="max-w-4xl mx-auto space-y-12 relative z-10">
+        <h1 className="font-serif text-6xl md:text-9xl font-bold tracking-tighter animate-in fade-in zoom-in duration-1000">
+          WERANDA
+        </h1>
+        
+        <div className="w-24 h-2 bg-accent mx-auto transform -rotate-2"></div>
+
+        <p className="font-mono text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+          Punk-rock bufet a koncertný priestor na bratislavskej hrádzi aj zo skrytou časťou, 
+          otvorený aj cez zimnú sezónu. Na Werande sa konajú aj koncerty a punkotéky.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+          <Link href="/menu">
+            <Button size="lg" className="text-lg px-8 py-6 rounded-none border-2 border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none">
+              POZRIEŤ MENU
+            </Button>
+          </Link>
+          <Link href="/kontakty">
+            <Button size="lg" className="text-lg px-8 py-6 rounded-none bg-accent text-accent-foreground hover:bg-accent/90 border-2 border-transparent hover:border-foreground transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none">
+              REZERVOVAŤ STÔL
+            </Button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
