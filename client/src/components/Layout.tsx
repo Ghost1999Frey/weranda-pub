@@ -13,6 +13,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { label: "O nás", path: "/o-nas" },
     { label: "Menu", path: "/menu" },
     { label: "Galéria", path: "/gallery" },
+    { label: "Komunita", path: "/komunita" },
+    { label: "Podujatia", path: "/podujatia" },
+    { label: "Partneri", path: "/partneri" },
     { label: "Kontakty", path: "/kontakty" },
   ];
 
@@ -94,7 +97,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div>
             <h3 className="font-serif text-2xl font-bold mb-4">Weranda</h3>
             <p className="text-sm opacity-80 max-w-xs">
-              Punk-rock bufet a koncertný priestor na bratislavskej Petržalke. Autentická atmosféra, kvalitné nápoje a živá hudba.
+              Punk-rock bufet vedľa cyklotrasy. Otvená komunita pre všetkých - cyklistov, LGBTQ+, rodiny, hudobníkov a všetkých, ktorí chcú byť sami sebou.
             </p>
           </div>
           <div>

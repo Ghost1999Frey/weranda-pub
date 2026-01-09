@@ -15,7 +15,7 @@ export default function Home() {
         <div className="w-24 h-2 bg-accent mx-auto transform -rotate-2"></div>
 
         <p className="font-mono text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-          Punk-rock bufet a koncertný priestor na bratislavskej Petržalke. 
+          Punk-rock bufet vedľa cyklotrasy. Otvená komunita pre všetkých - cyklistov, LGBTQ+, rodiny, hudobníkov. 
           Živá hudba, dobrý alkohol a autentická atmosféra. Weranda je miesto, kde sa stretáva punk kultúra s kvalitným jedlom a nápojmi.
         </p>
 

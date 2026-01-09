@@ -65,15 +65,16 @@ export default function Contact() {
                <MapView 
                  className="w-full h-full"
                  onMapReady={(map: google.maps.Map) => {
-                   // Bratislava-Petržalka coordinates
-                   const werandaLocation = { lat: 48.1358, lng: 17.1348 };
+                   // Májová 3303/23, Bratislava-Petržalka
+                   const werandaLocation = { lat: 48.13589, lng: 17.13476 };
                    new google.maps.Marker({
                      position: werandaLocation,
                      map: map,
-                     title: "Weranda - Punk Rock Bufet"
+                     title: "Weranda - Punk Rock Bufet",
+                     icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
                    });
                    map.setCenter(werandaLocation);
-                   map.setZoom(15);
+                   map.setZoom(16);
                  }}
                />
             </div>

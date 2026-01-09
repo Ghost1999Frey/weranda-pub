@@ -9,6 +9,9 @@ import About from "./pages/About";
 import Menu from "./pages/Menu";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import Community from "./pages/Community";
+import Events from "./pages/Events";
+import Partners from "./pages/Partners";
 import Layout from "./components/Layout";
 
 function Router() {
@@ -19,6 +22,9 @@ function Router() {
         <Route path="/o-nas" component={About} />
         <Route path="/menu" component={Menu} />
         <Route path="/gallery" component={Gallery} />
+        <Route path="/komunita" component={Community} />
+        <Route path="/podujatia" component={Events} />
+        <Route path="/partneri" component={Partners} />
         <Route path="/kontakty" component={Contact} />
         <Route component={NotFound} />
       </Switch>
