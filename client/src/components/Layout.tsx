@@ -21,6 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { label: "Galéria", path: "/gallery" },
     { label: "Partneri", path: "/partneri" },
     { label: "Kontakty", path: "/kontakty" },
+    { label: "Rezervácia", path: "/rezervacia" },
     { label: "Admin", path: "/admin-login", isAdmin: true },
   ];
 

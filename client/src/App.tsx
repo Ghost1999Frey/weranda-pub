@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 import Community from "./pages/Community";
 import Events from "./pages/Events";
 import Partners from "./pages/Partners";
+import Reservations from "./pages/Reservations";
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
 import Layout from "./components/Layout";
@@ -41,6 +42,7 @@ function Router() {
         <Route path="/podujatia" component={Events} />
         <Route path="/partneri" component={Partners} />
         <Route path="/kontakty" component={Contact} />
+        <Route path="/rezervacia" component={Reservations} />
         <Route path="/admin-login" component={AdminLogin} />
         <Route path="/admin" component={Admin} />
         <Route component={NotFound} />
