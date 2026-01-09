@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -12,9 +12,24 @@ import Contact from "./pages/Contact";
 import Community from "./pages/Community";
 import Events from "./pages/Events";
 import Partners from "./pages/Partners";
+import Admin from "./pages/Admin";
+import AdminLogin from "./pages/AdminLogin";
 import Layout from "./components/Layout";
 
 function Router() {
+  const [location] = useLocation();
+  const isAdminPage = location.startsWith("/admin");
+
+  if (isAdminPage) {
+    return (
+      <Switch>
+        <Route path="/admin-login" component={AdminLogin} />
+        <Route path="/admin" component={Admin} />
+        <Route component={NotFound} />
+      </Switch>
+    );
+  }
+
   return (
     <Layout>
       <Switch>
@@ -26,16 +41,13 @@ function Router() {
         <Route path="/podujatia" component={Events} />
         <Route path="/partneri" component={Partners} />
         <Route path="/kontakty" component={Contact} />
+        <Route path="/admin-login" component={AdminLogin} />
+        <Route path="/admin" component={Admin} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
   );
 }
-
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
   return (

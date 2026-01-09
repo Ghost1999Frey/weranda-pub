@@ -21,6 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { label: "Galéria", path: "/gallery" },
     { label: "Partneri", path: "/partneri" },
     { label: "Kontakty", path: "/kontakty" },
+    { label: "Admin", path: "/admin-login", isAdmin: true },
   ];
 
   return (
@@ -80,7 +81,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       <span
                         className={cn(
                           "block px-4 py-3 font-mono text-sm uppercase hover:bg-accent hover:text-accent-foreground transition-colors border-b border-foreground/20 last:border-b-0",
-                          location === item.path && "bg-accent text-accent-foreground"
+                          location === item.path && "bg-accent text-accent-foreground",
+                          (item as any).isAdmin && "bg-destructive/10 text-destructive font-bold"
                         )}
                       >
                         {item.label}
@@ -127,7 +129,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     href={item.path}
                     className={cn(
                       "text-sm font-bold uppercase tracking-widest hover:text-accent transition-colors block py-2",
-                      location === item.path && "text-accent"
+                      location === item.path && "text-accent",
+                      (item as any).isAdmin && "text-destructive"
                     )}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
