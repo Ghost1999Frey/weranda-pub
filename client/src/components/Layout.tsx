@@ -1,20 +1,24 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, MoreVertical } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const navItems = [
+  const mainNavItems = [
     { label: "Domov", path: "/" },
     { label: "O nás", path: "/o-nas" },
     { label: "Menu", path: "/menu" },
-    { label: "Galéria", path: "/gallery" },
     { label: "Komunita", path: "/komunita" },
     { label: "Podujatia", path: "/podujatia" },
+  ];
+
+  const dropdownItems = [
+    { label: "Galéria", path: "/gallery" },
     { label: "Partneri", path: "/partneri" },
     { label: "Kontakty", path: "/kontakty" },
   ];
@@ -22,53 +26,88 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col font-mono bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b-2 border-foreground bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-20 items-center justify-between">
+      <header className="sticky top-0 z-50 w-full border-b-2 border-foreground bg-background">
+        <div className="container flex h-20 items-center justify-between gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative">
-              <div className="absolute -inset-1 bg-accent rounded-full blur opacity-0 group-hover:opacity-75 transition duration-200"></div>
-              <span className="relative font-serif text-3xl font-bold tracking-tighter transform group-hover:-rotate-2 transition-transform duration-200">
-                Weranda
-              </span>
-            </div>
+          <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
+            <span className="font-serif text-2xl md:text-3xl font-bold tracking-tighter transform group-hover:-rotate-2 transition-transform duration-200">
+              Weranda
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+          <nav className="hidden md:flex items-center gap-6 flex-1 justify-center">
+            {mainNavItems.map((item) => (
               <Link
                 key={item.path}
                 href={item.path}
                 className={cn(
-                  "text-sm font-bold uppercase tracking-widest hover:text-accent transition-colors relative",
+                  "text-xs font-bold uppercase tracking-widest hover:text-accent transition-colors relative whitespace-nowrap",
                   location === item.path && "text-accent after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-accent"
                 )}
               >
                 {item.label}
               </Link>
             ))}
-            <Button variant="ghost" size="icon" className="hover:bg-accent hover:text-accent-foreground rounded-none">
-              <Search className="h-5 w-5" />
-            </Button>
           </nav>
 
-          {/* Mobile Menu Toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          {/* Right Side - Search and Dropdown */}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <Button variant="ghost" size="icon" className="hover:bg-accent hover:text-accent-foreground rounded-none hidden md:flex">
+              <Search className="h-5 w-5" />
+            </Button>
+
+            {/* Dropdown Menu (Three Dots) */}
+            <div className="relative">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hover:bg-accent hover:text-accent-foreground rounded-none"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
+                <MoreVertical className="h-5 w-5" />
+              </Button>
+
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-background border-2 border-foreground shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] z-50">
+                  {dropdownItems.map((item) => (
+                    <Link
+                      key={item.path}
+                      href={item.path}
+                      className="block"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      <span
+                        className={cn(
+                          "block px-4 py-3 font-mono text-sm uppercase hover:bg-accent hover:text-accent-foreground transition-colors border-b border-foreground/20 last:border-b-0",
+                          location === item.path && "bg-accent text-accent-foreground"
+                        )}
+                      >
+                        {item.label}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Menu Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden rounded-none"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t-2 border-foreground bg-background p-4 absolute w-full">
-            <nav className="flex flex-col gap-4">
-              {navItems.map((item) => (
+          <div className="md:hidden border-t-2 border-foreground bg-background p-4">
+            <nav className="flex flex-col gap-3">
+              {mainNavItems.map((item) => (
                 <Link
                   key={item.path}
                   href={item.path}
@@ -81,6 +120,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   {item.label}
                 </Link>
               ))}
+              <div className="border-t border-foreground/20 pt-3 mt-3">
+                {dropdownItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    href={item.path}
+                    className={cn(
+                      "text-sm font-bold uppercase tracking-widest hover:text-accent transition-colors block py-2",
+                      location === item.path && "text-accent"
+                    )}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </nav>
           </div>
         )}
