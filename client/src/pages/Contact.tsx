@@ -166,9 +166,9 @@ export default function Contact() {
             <div className="bg-background border-2 border-foreground p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <h2 className="font-bold text-2xl mb-4 uppercase tracking-widest">Nájdite nás</h2>
               <div className="bg-accent/20 border-2 border-foreground p-4 text-center">
-                <p className="font-mono text-sm opacity-70 mb-3">Vedľa cyklotrasy v Petžalke</p>
+                <p className="font-mono text-sm opacity-70 mb-3">Vedľa cyklotrasy v Petržalke</p>
                 <a 
-                  href="https://maps.google.com/?q=48.13004275360314,17.135870868934575" 
+                  href="https://maps.google.com/?q=48.1486,17.1077" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-block bg-foreground text-background px-4 py-2 font-bold uppercase hover:bg-accent hover:text-accent-foreground transition-colors"
